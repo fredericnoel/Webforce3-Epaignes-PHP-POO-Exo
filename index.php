@@ -1,0 +1,5 @@
+<?php
+
+date_timezone_set('Europe/Paris');
+require_once './functions/classAutoLoader.php';
+spl_autoload_register('classAutoloader');
