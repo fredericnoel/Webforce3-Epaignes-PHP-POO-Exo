@@ -11,4 +11,6 @@ $valeurs = array(
     'password' => 'michel a la plage'
 );
 
-var_dump($valeurs);
+// On instancie un objet de la classe Requete
+$test = new Requete();
+$test->inserer('table', $valeurs);
