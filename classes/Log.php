@@ -10,8 +10,8 @@ class Log
         // Penser à créer un répertoire logs à la racine
         $directory = '/logs/';
 
-        if (!is_dir('logs'))
-            mkdir('logs');
+        //if (!is_dir('logs'))
+        //    mkdir('logs');
 
         /* Je définis le nom de mon fichier
         * Un fichier par jour
@@ -25,7 +25,7 @@ class Log
         $data = date('H:i:s') . ' - ' . $data;
 
         // Création d'un handler après ouverture fichier
-        $handle = fopen($path, 'a');
+        $handle = fopen($path, "a");
 
         if (flock($handle, LOCK_EX)) {
             fwrite($handle, $data . PHP_EOL);
