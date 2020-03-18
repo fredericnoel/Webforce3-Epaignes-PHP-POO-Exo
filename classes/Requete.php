@@ -16,6 +16,22 @@ class Requete
         }
     }
 
+    public function inserer(string $table, array $valeurs)
+    {
+        $sql = "INSERT INTO $table VALUES";
+
+        foreach ($valeurs as $key => $value) {
+            $sql .= $key;
+            if ($key !== count($value) - 1) {
+                $sql .= ", ";
+            }
+        }
+
+
+        // Test
+        die($sql);
+    }
+
     public function __destruct()
     {
         unset($this->pdo);
