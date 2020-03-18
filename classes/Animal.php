@@ -1,6 +1,6 @@
 <?php
 
-abstract class Animal
+abstract class Animal implements Biologie
 {
     protected string $regne = 'animal';
     protected float $taille;
