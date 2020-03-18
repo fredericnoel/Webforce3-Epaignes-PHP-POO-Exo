@@ -16,20 +16,23 @@ class Requete
         }
     }
 
-    public function inserer(string $table, array $valeurs)
+    public function inserer(string $table, array $datas)
     {
-        $sql = "INSERT INTO $table VALUES";
-
-        foreach ($valeurs as $key => $value) {
-            $sql .= $key;
-            if ($key !== count($value) - 1) {
-                $sql .= ", ";
-            }
+        $colonnes = '(id';
+        $valeurs = '(NULL';
+        foreach ($datas as $key => $value) {
+            $colonnes .= ', ' . $key;
+            $valeurs .= ", :" . $key;
         }
+        $colonnes .= ')';
+        $valeurs .= ')';
 
-
-        // Test
-        die($sql);
+        $sql = 'INSERT INTO ' . $table . ' ' . $colonnes . ' VALUES ' . $valeurs;
+        $query = $this->pdo->prepare($sql);
+        foreach ($datas as $key => $value) {
+            $query->bindValue(":" . $key, $value, $this->getPDOType($value));
+        }
+        $result = $query->execute();
     }
 
     public function __destruct()
