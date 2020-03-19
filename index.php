@@ -11,6 +11,9 @@ $valeurs = array(
     'password' => 'michel a la plage'
 );
 
-// On instancie un objet de la classe Requete
+/* On instancie un objet de la classe Requete
 $test = new Requete();
-$test->inserer('table', $valeurs);
+$test->inserer('table', $valeurs);*/
+
+$truc = new FormulaireInscription('test');
+var_dump($truc);
