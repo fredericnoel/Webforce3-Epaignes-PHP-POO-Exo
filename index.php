@@ -15,5 +15,5 @@ $valeurs = array(
 $test = new Requete();
 $test->inserer('table', $valeurs);*/
 
-$truc = new FormulaireInscription('test');
+$truc = new FormulaireInscription('envoi.php', 'test', 'contact', 'contact');
 var_dump($truc);
